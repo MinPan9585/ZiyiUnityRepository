@@ -124,9 +124,6 @@ public class PlayerController : MonoBehaviour
     #endregion
 
     #region Player State Variables
-    /// <summary>
-    /// Enum used for categorizing the player's state
-    /// </summary>
     public enum PlayerState
     {
         Idle,
@@ -143,29 +140,12 @@ public class PlayerController : MonoBehaviour
 
     #region Functions
     #region GameObject Functions
-    /// <summary>
-    /// Description:
-    /// Standard Unity function called once before the first update
-    /// Input: 
-    /// none
-    /// Return: 
-    /// void (no return)
-    /// </summary>
     private void Start()
     {
         SetupRigidbody();
         SetUpInputManager();
     }
 
-    /// <summary>
-    /// Description:
-    /// Standard Unity function called once every frame after update
-    /// Every frame, process input, move the player, determine which way they should face, and choose which state they are in
-    /// Input: 
-    /// none
-    /// Return: 
-    /// void (no return)
-    /// </summary>
     private void LateUpdate()
     {
         ProcessInput();
@@ -419,14 +399,6 @@ public class PlayerController : MonoBehaviour
     }
     #endregion
 
-    /// <summary>
-    /// Description:
-    /// Sets up the player's rigidbody
-    /// Input: 
-    /// none
-    /// Return: 
-    /// void (no return)
-    /// </summary>
     private void SetupRigidbody()
     {
         if (playerRigidbody == null)
