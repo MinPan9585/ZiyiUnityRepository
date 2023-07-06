@@ -66,6 +66,7 @@ public class HealthDisplay : UIelement
                 Instantiate(healthDisplayImage, transform);
                 GameObject createdNumberDisp = Instantiate(numberDisplay, transform);
                 createdNumberDisp.GetComponent<Text>().text = number.ToString();
+                Debug.Log(createdNumberDisp.GetComponent<Text>().text);
             }
         }
     }
