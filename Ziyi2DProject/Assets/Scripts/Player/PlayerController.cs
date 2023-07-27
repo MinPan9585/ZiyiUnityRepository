@@ -8,6 +8,8 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerController : MonoBehaviour
 {
+    public GameObject bullet;
+    public int currentEnergy = 3;
     #region Variables
     #region GameObject references
     [Header("Game Object and Component References")]
@@ -146,6 +148,28 @@ public class PlayerController : MonoBehaviour
         SetUpInputManager();
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.J))
+        {
+            if(currentEnergy > 0)
+            {
+                GameObject bulletObject = Instantiate(bullet, transform.position, Quaternion.identity);
+                if(facing == PlayerDirection.Left)
+                {
+                    bulletObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(-100, 0));
+                }
+                if (facing == PlayerDirection.Right)
+                {
+                    bulletObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(100, 0));
+                }
+
+                currentEnergy--;
+            }
+            
+        }
+    }
+
     private void LateUpdate()
     {
         ProcessInput();
@@ -251,6 +275,11 @@ public class PlayerController : MonoBehaviour
     {
         if (timesJumped < allowedJumps && state != PlayerState.Dead)
         {
+            if(timesJumped == allowedJumps-1 && currentEnergy > 0)
+            {
+                allowedJumps++;
+                currentEnergy = currentEnergy - 1;
+            }
             jumping = true;
             float time = 0;
             SpawnJumpEffect();
@@ -265,6 +294,7 @@ public class PlayerController : MonoBehaviour
             jumping = false;
         }
     }
+
 
     /// <summary>
     /// Description:
@@ -293,6 +323,7 @@ public class PlayerController : MonoBehaviour
     public void Bounce()
     {
         timesJumped = 0;
+        //allowedJumps = 2;
         if (inputManager.jumpHeld)
         {
             StartCoroutine("Jump", 1.5f);
@@ -383,6 +414,7 @@ public class PlayerController : MonoBehaviour
             if (!jumping)
             {
                 timesJumped = 0;
+                allowedJumps = 2;
             }
         }
         else

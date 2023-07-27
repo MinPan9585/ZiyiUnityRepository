@@ -8,6 +8,7 @@ using UnityEngine.InputSystem;
 /// </summary>
 public class InputManager : MonoBehaviour
 {
+    
     // A global instance for scripts to reference
     public static InputManager instance;
 
@@ -32,6 +33,7 @@ public class InputManager : MonoBehaviour
             Destroy(this.gameObject);
         }
     }
+
 
     /// <summary>
     /// Description:
