@@ -205,6 +205,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 055bfc3e8a2bd5c438da3c9a6c85ea29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bullet: {fileID: 6025228718161796368, guid: d4d6cb3f9b7ff84458945f876281807d, type: 3}
+  currentEnergy: 3
   inputManager: {fileID: 0}
   groundCheck: {fileID: 8128307142647824885}
   spriteRenderer: {fileID: 8128307142859021831}
@@ -233,7 +235,7 @@ MonoBehaviour:
   maximumHealth: 3
   currentHealth: 3
   invincibilityTime: 2
-  useLives: 1
+  useLives: 0
   currentLives: 3
   maximumLives: 99
   respawnWaitTime: 3
