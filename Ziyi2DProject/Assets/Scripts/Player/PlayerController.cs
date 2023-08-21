@@ -10,6 +10,8 @@ public class PlayerController : MonoBehaviour
 {
     public GameObject bullet;
     public int currentEnergy = 3;
+    public int maxEnergy = 3;
+
     #region Variables
     #region GameObject references
     [Header("Game Object and Component References")]
@@ -146,6 +148,7 @@ public class PlayerController : MonoBehaviour
     {
         SetupRigidbody();
         SetUpInputManager();
+
     }
 
     private void Update()
@@ -163,12 +166,24 @@ public class PlayerController : MonoBehaviour
                 {
                     bulletObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(100, 0));
                 }
-
                 currentEnergy--;
             }
-            
         }
+        
     }
+
+    //private void OnTriggerStay2D(Collider2D collision)
+    //{
+    //    if (collision.CompareTag("Flower"))
+    //    {
+    //        print("111");
+    //        if (Input.GetKeyDown(KeyCode.K))
+    //        {
+    //            print("222");
+    //            Destroy(collision.gameObject);
+    //        }
+    //    }
+    //}
 
     private void LateUpdate()
     {

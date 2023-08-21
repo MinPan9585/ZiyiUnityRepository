@@ -207,6 +207,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: 6025228718161796368, guid: d4d6cb3f9b7ff84458945f876281807d, type: 3}
   currentEnergy: 3
+  maxEnergy: 3
+  flowerLayer:
+    serializedVersion: 2
+    m_Bits: 1024
   inputManager: {fileID: 0}
   groundCheck: {fileID: 8128307142647824885}
   spriteRenderer: {fileID: 8128307142859021831}
