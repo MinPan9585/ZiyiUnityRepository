@@ -3,10 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-/// <summary>
-/// Class which causes the text component on this gameobject to display the number of lives the player has left
-/// </summary>
-public class LivesDisplay : UIelement
+public class EnergyDisplay : UIelement
 {
 
     public GameObject livesDisplayImage = null;
@@ -15,15 +12,18 @@ public class LivesDisplay : UIelement
 
     public int maximumNumberToDisplay = 3;
 
+    public PlayerController playerController;
 
-    public override void UpdateUI()
+
+    //public override void UpdateUI()
+    void Update()
     {
         if (GameManager.instance != null && GameManager.instance.player != null)
         {
             Health playerHealth = GameManager.instance.player.GetComponent<Health>();
             if (playerHealth != null)
             {
-                SetChildImageNumber(playerHealth.currentLives - 1);
+                SetChildImageNumber(playerController.currentEnergy);
             }
         }
     }

@@ -293,7 +293,7 @@ public class PlayerController : MonoBehaviour
             if(timesJumped == allowedJumps-1 && currentEnergy > 0)
             {
                 allowedJumps++;
-                currentEnergy = currentEnergy - 1;
+                currentEnergy--;
             }
             jumping = true;
             float time = 0;
@@ -308,6 +308,7 @@ public class PlayerController : MonoBehaviour
             }
             jumping = false;
         }
+        //if(timesJumped)
     }
 
 

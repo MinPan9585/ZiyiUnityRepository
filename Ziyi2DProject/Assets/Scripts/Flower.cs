@@ -15,7 +15,7 @@ public class Flower : MonoBehaviour
 
     void Update()
     {
-        print(player.currentEnergy);
+        //print(player.currentEnergy);
         if (Input.GetKeyDown(KeyCode.K))
         {
             if (Physics2D.OverlapCircle(transform.position, 1f, playerLayer))

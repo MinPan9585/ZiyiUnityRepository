@@ -17,10 +17,12 @@ public class PlayerBullet : MonoBehaviour
     {
         rb2d.velocity = new Vector3(0, 0, 0);
         playerBulletAnim.SetTrigger("Hit");
-        Destroy(gameObject, 0.7f);
-        if(collision.CompareTag("Door") || collision.CompareTag("Enemy"))
+        if (collision.CompareTag("Door") || collision.CompareTag("Enemy"))
         {
-            Destroy(collision.gameObject);
+            print(collision.transform.parent.gameObject);
+            Destroy(collision.transform.parent.gameObject);
         }
+        Destroy(gameObject, 0.7f);
+        
     }
 }
